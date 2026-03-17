@@ -44,7 +44,10 @@ Requirements:
 **NOTE**
 **Write your files to: $WORKSPACE_DIR/fetch.sh and $WORKSPACE_DIR/policy.rego**
 **Make fetch.sh executable using chmod +x**
-**Validate your solution by running: ./fetch.sh && cat collected_data.json | opa eval -d policy.rego -I 'data.check.result'**
+**Validate by running from the snapshot directory:**
+```bash
+cd $SNAPSHOT_DIRS && $WORKSPACE_DIR/fetch.sh && opa eval -d $WORKSPACE_DIR/policy.rego -i collected_data.json 'data.check.result'
+```
 
 ====================================================================
 # 🔧 IMPLEMENTATION WORKFLOW (DO NOT SKIP STEPS)
@@ -135,9 +138,12 @@ Please provide ONLY the complete policy.rego content, without any explanation or
 ```
 
 ### Phase 6 — Validation
-11. Test the complete solution:
-    - Run: ./fetch.sh
-    - Run: cat collected_data.json | opa eval -d policy.rego -I 'data.check.result'
+11. Test the complete solution from the snapshot directory:
+    ```bash
+    cd $SNAPSHOT_DIRS
+    $WORKSPACE_DIR/fetch.sh
+    opa eval -d $WORKSPACE_DIR/policy.rego -i collected_data.json 'data.check.result'
+    ```
 12. Verify the result matches expected behavior from problem.md
 13. Debug if needed and iterate
 
@@ -263,4 +269,7 @@ Your solution is successful when:
 **NOTE**
 **Write your files to: $WORKSPACE_DIR/fetch.sh and $WORKSPACE_DIR/policy.rego**
 **Make fetch.sh executable: chmod +x $WORKSPACE_DIR/fetch.sh**
-**Validate with: cd $WORKSPACE_DIR && ./fetch.sh && cat collected_data.json | opa eval -d policy.rego -I 'data.check.result'**
+**Validate by running from the snapshot directory:**
+```bash
+cd $SNAPSHOT_DIRS && $WORKSPACE_DIR/fetch.sh && opa eval -d $WORKSPACE_DIR/policy.rego -i collected_data.json 'data.check.result'
+```

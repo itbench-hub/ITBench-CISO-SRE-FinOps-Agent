@@ -18,14 +18,14 @@ You MUST NOT read or use ground-truth files under any circumstances.
 ====================================================================
 **IMPORTANT: Your scenario data is located in these directories (READ-ONLY):**
 - $SNAPSHOT_DIRS
+  - **problem.md** - Compliance requirement description
+  - **static-resources/** - Kubernetes YAML files to analyze
 
 **⚠️ DO NOT search the filesystem for any additional data except for what is in $SNAPSHOT_DIRS. Start your work by listing the contents of these directories.**
 
-Your working directory (for writing output, code, etc.) is: $WORKSPACE_DIR
-
-The problem description is available at $WORKSPACE_DIR/problem.md
-
-Static Kubernetes resources are available at $WORKSPACE_DIR/static-resources/
+Your working directory (for writing output files) is: $WORKSPACE_DIR
+- Write **fetch.sh** here (script to collect data from static-resources)
+- Write **policy.rego** here (OPA policy for compliance checking)
 
 ====================================================================
 # 📤 FINAL OUTPUT FORMAT (MANDATORY) TO BE WRITTEN IN $WORKSPACE_DIR
